@@ -151,7 +151,30 @@ public class Gradebook {
      */
     public String largestVariation() {
         String result = "";
-        // Your code goes here
+        double lowestG = 0.0;
+        double highestG = 0.0;
+        double variation = 0.0;
+        double greatestV = 0.0;
+
+        for(int i=0; i< Grades.length; i++){
+            for(int j=0; j<Grades[i].length; j++){
+                if(j == 0) {
+                    lowestG = Grades[i][j];
+                    highestG = Grades[i][j];
+                }
+                if(Grades[i][j] < lowestG){
+                    lowestG = Grades[i][j];
+                }
+                if(Grades[i][j] > highestG){
+                    highestG = Grades[i][j];
+                }
+                variation = highestG - lowestG;
+            }
+            if(variation> greatestV){
+                greatestV=variation;
+                result = Roster[i];
+            }
+        }
         return result;
     }
 
@@ -165,7 +188,20 @@ public class Gradebook {
      * 		•	Note: you should use insertion sort.
      */
     public void sortStudentsByAverage() {
-        // Your code goes here
+        //1st Calculate averages and store in array that matches the index for each student
+        double[] avgs = new double[Roster.length];
+        double sum= 0.0;
+        double avg= 0.0;
+        for(int i=0; i< Grades.length; i++){
+            for(int j=0; j<Grades[i].length; j++){
+                sum+= Grades[i][j];
+            }
+            avg = sum/Grades[i].length;
+            avgs[i]= avg;
+        }
+        //Work with average to sort Grades and Roster using avgs index
+
+
     }
 
     /* Method 5: named sortStudentsByName

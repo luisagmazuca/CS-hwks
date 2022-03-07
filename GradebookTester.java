@@ -25,6 +25,8 @@ public class GradebookTester {
 
     @Test
     public void largestVariation() {
+        String E = "Clint Barton";
+        assertEquals(E,g.largestVariation());
     }
 
     @Test
